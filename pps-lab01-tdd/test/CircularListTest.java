@@ -64,4 +64,15 @@ public class CircularListTest {
         }
     }
 
+    @Test
+    public void testNextMultipleElement() {
+        circularList.add(1);
+        circularList.add(2);
+        circularList.add(3);
+        testNext(1);
+        testNext(2);
+        testNext(3);
+        testNext(1);
+    }
+
 }
