@@ -84,4 +84,18 @@ public class CircularListTest {
         assertEquals(Optional.empty(), circularList.previous());
     }
 
+    @Test
+    public void testPreviousSingleElement() {
+        circularList.add(1);
+        testPrevious(1);
+    }
+
+    @Test
+    public void testMultiplePreviousSingleElement() {
+        circularList.add(2);
+        for(int i = 0 ; i< TEST_REPETITION; i++){
+            testPrevious(2);
+        }
+    }
+    
 }
