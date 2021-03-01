@@ -45,4 +45,10 @@ public class CircularListTest {
         assertEquals(Optional.empty(), circularList.next());
     }
 
+    @Test
+    public void testNextWithSingleElement() {
+        circularList.add(1);
+        assertEquals(Optional.of(1), circularList.next());
+    }
+
 }
