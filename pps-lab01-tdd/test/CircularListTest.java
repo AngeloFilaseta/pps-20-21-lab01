@@ -64,11 +64,15 @@ public class CircularListTest {
         }
     }
 
+    private void populateListWithElements(final int ... values){
+        for( int v : values){
+            circularList.add(v);
+        }
+    }
+
     @Test
     public void testNextMultipleElement() {
-        circularList.add(1);
-        circularList.add(2);
-        circularList.add(3);
+        populateListWithElements(1,2,3);
         testNext(1);
         testNext(2);
         testNext(3);
@@ -100,13 +104,28 @@ public class CircularListTest {
 
     @Test
     public void testMultiplePreviousMultipleElement() {
-        circularList.add(1);
-        circularList.add(2);
-        circularList.add(3);
+        populateListWithElements(1, 2, 3);
         testPrevious(3);
         testPrevious(2);
         testPrevious(1);
         testPrevious(3);
+    }
+
+    @Test
+    public void testResetWithNext(){
+        populateListWithElements(1, 2, 3);
+        circularList.next();
+        circularList.reset();
+        assertEquals(Optional.of(1), circularList.next());
+    }
+
+
+    @Test
+    public void testResetWithPrevious(){
+        populateListWithElements(1, 2, 3);
+        circularList.previous();
+        circularList.reset();
+        assertEquals(Optional.of(1), circularList.next());
     }
 
 }
