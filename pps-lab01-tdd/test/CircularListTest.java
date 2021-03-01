@@ -2,6 +2,7 @@ import lab01.tdd.CircularList;
 import lab01.tdd.CircularListImpl;
 import org.junit.jupiter.api.Test;
 
+import java.util.Optional;
 import java.util.stream.IntStream;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -39,5 +40,9 @@ public class CircularListTest {
         assertEquals(NUMBER_OF_INSERTED_ELEMENTS, circularList.size());
     }
 
+    @Test
+    public void testNextWithEmptyList(){
+        assertEquals(Optional.empty(), circularList.next());
+    }
 
 }
