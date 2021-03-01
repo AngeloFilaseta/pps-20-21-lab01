@@ -13,6 +13,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class CircularListTest {
 
     private static final int NUMBER_OF_INSERTED_ELEMENTS = 100;
+    private static final int TEST_REPETITION = 50;
 
     CircularList circularList = new CircularListImpl();
 
@@ -45,10 +46,22 @@ public class CircularListTest {
         assertEquals(Optional.empty(), circularList.next());
     }
 
+    private void testNext(final int expectedElement){
+        assertEquals(Optional.of(expectedElement), circularList.next());
+    }
+
     @Test
-    public void testNextWithSingleElement() {
+    public void testNextSingleElement() {
         circularList.add(1);
-        assertEquals(Optional.of(1), circularList.next());
+        testNext(1);
+    }
+
+    @Test
+    public void testMultipleNextSingleElement() {
+        circularList.add(2);
+        for(int i = 0 ; i< TEST_REPETITION; i++){
+            testNext(2);
+        }
     }
 
 }
