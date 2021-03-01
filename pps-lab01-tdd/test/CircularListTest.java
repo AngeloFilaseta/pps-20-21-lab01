@@ -97,5 +97,16 @@ public class CircularListTest {
             testPrevious(2);
         }
     }
-    
+
+    @Test
+    public void testMultiplePreviousMultipleElement() {
+        circularList.add(1);
+        circularList.add(2);
+        circularList.add(3);
+        testPrevious(3);
+        testPrevious(2);
+        testPrevious(1);
+        testPrevious(3);
+    }
+
 }

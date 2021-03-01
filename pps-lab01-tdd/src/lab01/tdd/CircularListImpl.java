@@ -58,8 +58,10 @@ public class CircularListImpl implements CircularList {
         this.actualIndex %= list.size();
     }
     private void decrementActualIndex(){
-        this.actualIndex -= 1;
-        this.actualIndex %= list.size();
+        if(actualIndex == 0){
+            this.actualIndex = this.list.size() - 1;
+        }else{
+            this.actualIndex -= 1;
+        }
     }
-
 }
