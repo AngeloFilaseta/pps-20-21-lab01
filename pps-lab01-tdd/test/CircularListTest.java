@@ -41,13 +41,13 @@ public class CircularListTest {
         assertEquals(NUMBER_OF_INSERTED_ELEMENTS, circularList.size());
     }
 
+    private void testNext(final int expectedElement){
+        assertEquals(Optional.of(expectedElement), circularList.next());
+    }
+
     @Test
     public void testNextWithEmptyList(){
         assertEquals(Optional.empty(), circularList.next());
-    }
-
-    private void testNext(final int expectedElement){
-        assertEquals(Optional.of(expectedElement), circularList.next());
     }
 
     @Test
@@ -73,6 +73,15 @@ public class CircularListTest {
         testNext(2);
         testNext(3);
         testNext(1);
+    }
+
+    public void testPrevious(final int expectedElement) {
+        assertEquals(Optional.of(expectedElement), circularList.previous());
+    }
+
+    @Test
+    public void testPreviousWithEmptyList(){
+        assertEquals(Optional.empty(), circularList.previous());
     }
 
 }
