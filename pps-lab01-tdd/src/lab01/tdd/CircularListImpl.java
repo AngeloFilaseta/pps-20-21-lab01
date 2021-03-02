@@ -1,5 +1,7 @@
 package lab01.tdd;
 
+import lab01.tdd.selectStrategy.SelectStrategy;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;

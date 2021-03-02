@@ -1,4 +1,4 @@
-package lab01.tdd;
+package lab01.tdd.selectStrategy;
 
 /**
  * Get the next even element.
