@@ -1,5 +1,8 @@
 package lab01.tdd.selectStrategy;
 
+/**
+ * Get the next equal element.
+ */
 public class SelectEqualsStrategy extends AbstractComparisonStrategy {
 
     public SelectEqualsStrategy(int comparisonElement) {

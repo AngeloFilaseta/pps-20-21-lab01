@@ -2,6 +2,7 @@ package lab01.tdd;
 
 import lab01.tdd.selectStrategy.SelectEqualsStrategy;
 import lab01.tdd.selectStrategy.SelectEvenStrategy;
+import lab01.tdd.selectStrategy.SelectMultipleOfStrategy;
 import lab01.tdd.selectStrategy.SelectStrategy;
 import org.junit.jupiter.api.Test;
 
@@ -46,6 +47,20 @@ class SelectStrategyTest {
         populateListWithElements(circularList, 1,2,3);
         for(int i = 0 ; i< TEST_REPETITION; i++){
             assertEquals(Optional.of(3), circularList.next());
+        }
+    }
+
+    @Test
+    void testMultipleOfStrategy() {
+        strategy = new SelectMultipleOfStrategy(3);
+        assertTrue(strategy.apply(6));
+        assertFalse(strategy.apply(12));
+        assertFalse(strategy.apply(1));
+        assignStrategyToList(strategy);
+        //Circular List Test
+        populateListWithElements(circularList, 1,2,6,3,10);
+        for(int i = 0 ; i< TEST_REPETITION; i++){
+            assertEquals(Optional.of(6), circularList.next());
         }
     }
 
