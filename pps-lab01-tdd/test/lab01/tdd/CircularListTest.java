@@ -1,7 +1,8 @@
-import lab01.tdd.CircularList;
-import lab01.tdd.CircularListImpl;
-import org.junit.jupiter.api.Test;
+package lab01.tdd;
 
+import static lab01.tdd.TestUtility.TEST_REPETITION;
+import static lab01.tdd.TestUtility.populateListWithElements;
+import org.junit.jupiter.api.Test;
 import java.util.Optional;
 import java.util.stream.IntStream;
 
@@ -13,7 +14,6 @@ import static org.junit.jupiter.api.Assertions.*;
 public class CircularListTest {
 
     private static final int NUMBER_OF_INSERTED_ELEMENTS = 100;
-    private static final int TEST_REPETITION = 50;
 
     CircularList circularList = new CircularListImpl();
 
@@ -64,15 +64,9 @@ public class CircularListTest {
         }
     }
 
-    private void populateListWithElements(final int ... values){
-        for( int v : values){
-            circularList.add(v);
-        }
-    }
-
     @Test
     public void testNextMultipleElement() {
-        populateListWithElements(1,2,3);
+        populateListWithElements(circularList, 1,2,3);
         testNext(1);
         testNext(2);
         testNext(3);
@@ -104,7 +98,7 @@ public class CircularListTest {
 
     @Test
     public void testMultiplePreviousMultipleElement() {
-        populateListWithElements(1, 2, 3);
+        populateListWithElements(circularList, 1,2,3);
         testPrevious(3);
         testPrevious(2);
         testPrevious(1);
@@ -113,7 +107,7 @@ public class CircularListTest {
 
     @Test
     public void testResetWithNext(){
-        populateListWithElements(1, 2, 3);
+        populateListWithElements(circularList, 1,2,3);
         circularList.next();
         circularList.reset();
         assertEquals(Optional.of(1), circularList.next());
@@ -122,7 +116,7 @@ public class CircularListTest {
 
     @Test
     public void testResetWithPrevious(){
-        populateListWithElements(1, 2, 3);
+        populateListWithElements(circularList, 1,2,3);
         circularList.previous();
         circularList.reset();
         assertEquals(Optional.of(1), circularList.next());

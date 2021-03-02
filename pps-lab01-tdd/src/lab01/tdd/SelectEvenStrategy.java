@@ -1,5 +1,8 @@
 package lab01.tdd;
 
+/**
+ * Get the next even element.
+ */
 public class SelectEvenStrategy implements SelectStrategy {
 
     @Override

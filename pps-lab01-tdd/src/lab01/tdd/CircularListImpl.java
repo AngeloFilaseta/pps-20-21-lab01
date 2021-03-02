@@ -6,8 +6,17 @@ import java.util.Optional;
 
 public class CircularListImpl implements CircularList {
 
-    List<Integer> list = new ArrayList<>();
-    int actualIndex = 0;
+    private final SelectStrategy nextStrategy;
+    private final List<Integer> list = new ArrayList<>();
+    private int actualIndex = 0;
+
+    public CircularListImpl() {
+        this(nextElement -> true);
+    }
+
+    public CircularListImpl(final SelectStrategy strategy) {
+        this.nextStrategy = strategy;
+    }
 
     @Override
     public void add(int element) {
@@ -29,9 +38,7 @@ public class CircularListImpl implements CircularList {
         if(list.isEmpty()){
             return Optional.empty();
         }
-        Optional<Integer> nextValue= Optional.of(list.get(actualIndex));
-        incrementActualIndex();
-        return nextValue;
+        return nextByStrategy();
     }
 
     @Override
@@ -57,6 +64,7 @@ public class CircularListImpl implements CircularList {
         this.actualIndex += 1;
         this.actualIndex %= list.size();
     }
+
     private void decrementActualIndex(){
         if(actualIndex == 0){
             this.actualIndex = this.list.size() - 1;
@@ -64,4 +72,17 @@ public class CircularListImpl implements CircularList {
             this.actualIndex -= 1;
         }
     }
+
+    private Optional<Integer> nextByStrategy(){
+        final int startIndex = actualIndex;
+        do{
+            int nextPure = list.get(actualIndex);
+            incrementActualIndex();
+            if(nextStrategy.apply(nextPure)){
+                return Optional.of(nextPure);
+            }
+        }while(actualIndex != startIndex);
+        return Optional.empty();
+    }
+
 }
