@@ -1,14 +1,14 @@
 package lab01.example.model;
 
-import lab01.example.model.operations.BankOperator;
+import lab01.example.model.operations.OperationStrategy;
 
 public abstract class AbstractBankAccount implements BankAccount{
 
     protected double balance;
     protected final AccountHolder holder;
-    protected final BankOperator operator;
+    protected final OperationStrategy operator;
 
-    public AbstractBankAccount(final AccountHolder holder, final double balance, final BankOperator operator) {
+    public AbstractBankAccount(final AccountHolder holder, final double balance, final OperationStrategy operator) {
         this.holder = holder;
         this.balance = balance;
         this.operator = operator;
@@ -27,14 +27,14 @@ public abstract class AbstractBankAccount implements BankAccount{
     @Override
     public void deposit(final int usrID, final double amount) {
         if (checkUser(usrID)) {
-            balance = operator.deposit(balance, amount);
+            balance = operator.updateBalanceAfterDeposit(balance, amount);
         }
     }
 
     @Override
     public void withdraw(final int usrID, final double amount) {
         if(isWithdrawAllowed(amount) && checkUser(usrID)) {
-            balance = operator.withdraw(balance, amount);
+            balance = operator.updateBalanceAfterWithdraw(balance, amount);
         }
     }
 

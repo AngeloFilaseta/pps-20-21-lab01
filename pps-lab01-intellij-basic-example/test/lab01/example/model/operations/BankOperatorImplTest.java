@@ -9,18 +9,18 @@ class BankOperatorImplTest extends AbstractBankOperatorTest{
 
     @BeforeEach
     void beforeEach(){
-        operator = new BankOperatorImpl();
+        operator = new StandardOperationStrategy();
         initialValue = 100;
     }
 
     @Test
     void testDeposit(){
-        assertEquals(200, operator.deposit(initialValue, 100));
+        assertEquals(200, operator.updateBalanceAfterDeposit(initialValue, 100));
     }
 
     @Test
     void testWithdraw(){
-        assertEquals(50, operator.withdraw(initialValue, 50));
+        assertEquals(50, operator.updateBalanceAfterWithdraw(initialValue, 50));
     }
 
 }

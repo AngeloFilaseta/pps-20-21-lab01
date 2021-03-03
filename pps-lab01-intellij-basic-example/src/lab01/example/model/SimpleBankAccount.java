@@ -1,6 +1,6 @@
 package lab01.example.model;
 
-import lab01.example.model.operations.BankOperatorImpl;
+import lab01.example.model.operations.StandardOperationStrategy;
 
 /**
  * This class represent a particular instance of a BankAccount.
@@ -10,7 +10,7 @@ import lab01.example.model.operations.BankOperatorImpl;
 public class SimpleBankAccount extends AbstractBankAccount {
 
     public SimpleBankAccount(final AccountHolder holder, final double balance) {
-        super(holder, balance, new BankOperatorImpl());
+        super(holder, balance, new StandardOperationStrategy());
     }
 
 

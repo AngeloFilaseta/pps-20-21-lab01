@@ -6,17 +6,17 @@ public class BankOperatorWithFeeTest extends  AbstractBankOperatorTest{
 
     @Override
     void beforeEach() {
-        operator = new BankOperatorWithFee();
+        operator = new OperatorWithFeeStrategy();
         initialValue = 100;
     }
 
     @Override
     void testDeposit() {
-        assertEquals(199, operator.deposit(initialValue, 100));
+        assertEquals(199, operator.updateBalanceAfterDeposit(initialValue, 100));
     }
 
     @Override
     void testWithdraw() {
-        assertEquals(49, operator.withdraw(initialValue, 50));
+        assertEquals(49, operator.updateBalanceAfterWithdraw(initialValue, 50));
     }
 }

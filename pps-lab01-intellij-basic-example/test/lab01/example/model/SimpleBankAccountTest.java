@@ -2,7 +2,6 @@ package lab01.example.model;
 
 import org.junit.jupiter.api.*;
 
-import static lab01.example.model.operations.BankOperatorWithFee.TRANSACTION_FEE;
 import static org.junit.jupiter.api.Assertions.*;
 
 /**

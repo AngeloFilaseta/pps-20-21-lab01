@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 
 public abstract class AbstractBankOperatorTest {
 
-    BankOperator operator;
+    OperationStrategy operator;
     Integer initialValue;
 
     @BeforeEach
