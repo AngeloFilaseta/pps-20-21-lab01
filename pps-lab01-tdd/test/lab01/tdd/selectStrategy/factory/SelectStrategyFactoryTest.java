@@ -33,7 +33,7 @@ class SelectStrategyFactoryTest {
         testCreateStrategyPassingParameter(false);
     }
 
-    void testCreateStrategyPassingParameter(boolean usingParameter) {
+    private void testCreateStrategyPassingParameter(final boolean usingParameter) {
         try{
             if(usingParameter){
                 abstractFactory.createStrategy(1);
