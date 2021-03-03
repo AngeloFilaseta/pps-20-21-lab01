@@ -1,9 +1,10 @@
 package lab01.tdd;
 
-import lab01.tdd.selectStrategy.SelectEqualsStrategy;
-import lab01.tdd.selectStrategy.SelectEvenStrategy;
-import lab01.tdd.selectStrategy.SelectMultipleOfStrategy;
 import lab01.tdd.selectStrategy.SelectStrategy;
+import lab01.tdd.selectStrategy.factory.SelectEqualsStrategyFactory;
+import lab01.tdd.selectStrategy.factory.SelectEvenStrategyFactory;
+import lab01.tdd.selectStrategy.factory.SelectMultipleOfStrategyFactory;
+import lab01.tdd.selectStrategy.factory.SelectStrategyFactory;
 import org.junit.jupiter.api.Test;
 
 import java.util.Optional;
@@ -16,6 +17,7 @@ class SelectStrategyTest {
 
     private CircularList circularList;
     private SelectStrategy strategy;
+    private SelectStrategyFactory factory;
 
     private void assignStrategyToList(final SelectStrategy strategy){
         circularList = new CircularListImpl(strategy);
@@ -23,7 +25,8 @@ class SelectStrategyTest {
 
     @Test
     void testEvenStrategy(){
-        strategy = new SelectEvenStrategy();
+        factory = new SelectEvenStrategyFactory();
+        strategy = factory.createStrategy();
         assertTrue(strategy.apply(0));
         assertFalse(strategy.apply(1));
         assertTrue(strategy.apply(2));
@@ -38,7 +41,8 @@ class SelectStrategyTest {
 
     @Test
     void testEqualsStrategy() {
-        strategy = new SelectEqualsStrategy(3);
+        factory = new SelectEqualsStrategyFactory();
+        strategy = factory.createStrategy(3);
         assertTrue(strategy.apply(3));
         assertFalse(strategy.apply(2));
         assertFalse(strategy.apply(1));
@@ -52,7 +56,8 @@ class SelectStrategyTest {
 
     @Test
     void testMultipleOfStrategy() {
-        strategy = new SelectMultipleOfStrategy(3);
+        factory = new SelectMultipleOfStrategyFactory();
+        strategy = factory.createStrategy(3);
         assertTrue(strategy.apply(6));
         assertFalse(strategy.apply(12));
         assertFalse(strategy.apply(1));
