@@ -3,7 +3,7 @@ package lab01.tdd.selectStrategy.factory;
 import lab01.tdd.selectStrategy.SelectEvenStrategy;
 import lab01.tdd.selectStrategy.SelectStrategy;
 
-public class SelectEvenStrategyFactory implements  SelectStrategyFactory{
+public class SelectEvenStrategyFactory extends AbstractComparisonStrategyFactory{
 
     @Override
     public SelectStrategy createStrategy() {
@@ -11,8 +11,9 @@ public class SelectEvenStrategyFactory implements  SelectStrategyFactory{
     }
 
     @Override
-    public SelectStrategy createStrategy(final int comparisonElement) {
-        throw new IllegalCallerException("Can't invoke this method on class: " + this.getClass().getName());
+    public SelectStrategy createStrategy(int comparisonElement) {
+        throw new IllegalCallerException("Can't create the chosen strategy without parameters");
     }
+
 
 }

@@ -9,7 +9,7 @@ public abstract class AbstractComparisonStrategy implements SelectStrategy{
     }
 
     @Override
-    public abstract boolean apply(int element);
+    public abstract boolean apply(final int element);
 
     protected int getComparisonElement() {
         return comparisonElement;
