@@ -11,7 +11,7 @@ public class SelectEvenStrategyFactory implements  SelectStrategyFactory{
     }
 
     @Override
-    public SelectStrategy createStrategy(int comparisonElement) {
+    public SelectStrategy createStrategy(final int comparisonElement) {
         throw new IllegalCallerException("Can't invoke this method on class: " + this.getClass().getName());
     }
 
