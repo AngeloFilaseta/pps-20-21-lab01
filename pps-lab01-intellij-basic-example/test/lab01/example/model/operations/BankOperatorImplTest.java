@@ -9,7 +9,7 @@ class BankOperatorImplTest extends AbstractBankOperatorTest{
 
     @BeforeEach
     void beforeEach(){
-        operator = new StandardOperationStrategy();
+        operator = new SimpleOperationStrategy();
         initialValue = 100;
     }
 

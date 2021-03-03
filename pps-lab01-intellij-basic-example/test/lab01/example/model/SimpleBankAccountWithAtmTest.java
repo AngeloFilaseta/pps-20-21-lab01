@@ -3,7 +3,7 @@ package lab01.example.model;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static lab01.example.model.operations.OperatorWithFeeStrategy.TRANSACTION_FEE;
+import static lab01.example.model.operations.SimpleOperationWithFeeStrategy.TRANSACTION_FEE;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class SimpleBankAccountWithAtmTest extends AbstractSimpleBankAccountTest{

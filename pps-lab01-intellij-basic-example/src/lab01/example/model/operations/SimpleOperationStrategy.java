@@ -1,6 +1,6 @@
 package lab01.example.model.operations;
 
-public class StandardOperationStrategy implements OperationStrategy {
+public class SimpleOperationStrategy implements OperationStrategy {
 
     @Override
     public double updateBalanceAfterDeposit(double bankAccountAmount, double depositAmount) {

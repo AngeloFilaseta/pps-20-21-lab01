@@ -5,6 +5,7 @@ import lab01.tdd.selectStrategy.factory.SelectEqualsStrategyFactory;
 import lab01.tdd.selectStrategy.factory.SelectEvenStrategyFactory;
 import lab01.tdd.selectStrategy.factory.SelectMultipleOfStrategyFactory;
 import lab01.tdd.selectStrategy.factory.SelectStrategyFactory;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.Optional;
@@ -19,8 +20,9 @@ class SelectStrategyTest {
     private SelectStrategy strategy;
     private SelectStrategyFactory factory;
 
-    private void assignStrategyToList(final SelectStrategy strategy){
-        circularList = new CircularListImpl(strategy);
+    @BeforeEach
+    void beforeEach(){
+        circularList = new CircularListImpl();
     }
 
     @Test
@@ -31,11 +33,10 @@ class SelectStrategyTest {
         assertFalse(strategy.apply(1));
         assertTrue(strategy.apply(2));
         assertFalse(strategy.apply(3));
-        assignStrategyToList(strategy);
         //Circular List Test
         populateListWithElements(circularList, 1,2,3);
         for(int i = 0 ; i< TEST_REPETITION; i++){
-            assertEquals(Optional.of(2), circularList.next());
+            assertEquals(Optional.of(2), circularList.next(strategy));
         }
     }
 
@@ -46,11 +47,10 @@ class SelectStrategyTest {
         assertTrue(strategy.apply(3));
         assertFalse(strategy.apply(2));
         assertFalse(strategy.apply(1));
-        assignStrategyToList(strategy);
         //Circular List Test
         populateListWithElements(circularList, 1,2,3);
         for(int i = 0 ; i< TEST_REPETITION; i++){
-            assertEquals(Optional.of(3), circularList.next());
+            assertEquals(Optional.of(3), circularList.next(strategy));
         }
     }
 
@@ -61,11 +61,10 @@ class SelectStrategyTest {
         assertTrue(strategy.apply(6));
         assertFalse(strategy.apply(12));
         assertFalse(strategy.apply(1));
-        assignStrategyToList(strategy);
         //Circular List Test
         populateListWithElements(circularList, 1,2,6,3,10);
         for(int i = 0 ; i< TEST_REPETITION; i++){
-            assertEquals(Optional.of(6), circularList.next());
+            assertEquals(Optional.of(6), circularList.next(strategy));
         }
     }
 

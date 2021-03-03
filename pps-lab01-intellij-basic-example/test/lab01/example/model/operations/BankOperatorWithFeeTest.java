@@ -6,7 +6,7 @@ public class BankOperatorWithFeeTest extends  AbstractBankOperatorTest{
 
     @Override
     void beforeEach() {
-        operator = new OperatorWithFeeStrategy();
+        operator = new SimpleOperationWithFeeStrategy();
         initialValue = 100;
     }
 

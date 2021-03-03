@@ -1,6 +1,6 @@
 package lab01.example.model.operations;
 
-public class OperatorWithFeeStrategy extends StandardOperationStrategy {
+public class SimpleOperationWithFeeStrategy extends SimpleOperationStrategy {
 
     public static final int TRANSACTION_FEE = 1;
 

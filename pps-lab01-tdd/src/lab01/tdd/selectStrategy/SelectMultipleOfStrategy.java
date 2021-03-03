@@ -1,11 +1,12 @@
 package lab01.tdd.selectStrategy;
 
 /**
- * Get the next multiple of a given number;
+ * Get the next multiple of a given number.
  */
 public class SelectMultipleOfStrategy extends AbstractComparisonStrategy {
 
     private static final int MULTIPLIER = 2;
+
     public SelectMultipleOfStrategy(int comparisonElement) {
         super(comparisonElement);
     }
