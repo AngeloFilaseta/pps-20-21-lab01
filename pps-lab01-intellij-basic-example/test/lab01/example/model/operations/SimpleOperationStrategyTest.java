@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class BankOperatorImplTest extends AbstractBankOperatorTest{
+class SimpleOperationStrategyTest extends AbstractOperationStrategyTest {
 
     @BeforeEach
     void beforeEach(){

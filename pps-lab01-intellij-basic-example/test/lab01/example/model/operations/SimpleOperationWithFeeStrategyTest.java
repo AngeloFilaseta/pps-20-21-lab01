@@ -2,7 +2,7 @@ package lab01.example.model.operations;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class BankOperatorWithFeeTest extends  AbstractBankOperatorTest{
+public class SimpleOperationWithFeeStrategyTest extends AbstractOperationStrategyTest {
 
     @Override
     void beforeEach() {
